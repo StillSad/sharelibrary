@@ -1,0 +1,57 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.thinkwage.sharelibrary">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+        <!-- 腾讯分享 -->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent1105556873" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- 微信分享回调页面 -->
+        <!--com.thinkwage.geshui 替换为项目包名-->
+        <activity
+            android:name="com.thinkwage.geshui.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--微信分享app-->
+        <!--vlaue格式：sharelib + appid-->
+        <meta-data
+            android:name="WX_APP_ID"
+            android:value="sharelibwx8c310903ab45b736"></meta-data>
+        <!--QQ分享app-->
+        <!--vlaue格式：sharelib + appid-->
+        <meta-data
+            android:name="QQ_APP_ID"
+            android:value="sharelib1105556873"></meta-data>
+        <!--QQ分享LOGO地址-->
+        <!--vlaue格式：sharelib + url-->
+        <meta-data
+            android:name="SHARE_LOGO_URL"
+            android:value="sharelibhttps://www.51geshui.com/picture/appBanner/logo_geshui.png"></meta-data>
+    </application>
+
+</manifest>
